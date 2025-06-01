@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Purchase Completed{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+<body>
+
+{% block iconlinks %}
+
+<div class = "icons">
+    <div class = "search-bar">
+        <input type="text" id="search-input" placeholder="&#x1F50E;&#xFE0E;" class="search-bar">
+    </div>
+    
+    <div class = "user-icon">
+        <a href="#" class = "profile-icon" title = "Account"><i class="fas fa-user"></i></a>
+        <div class = "dropdown icon-dropdown">
+
+            {% if user.is_authenticated and not user.is_superuser %}
+            
+            <div><a href = "../../account/update_profile">My Profile</a></div>
+            <div><a href = "../../shopping_cart/view_cart">My Cart</a></div>
+            <div><a href = "../../account/logout">Log Out</a></div>
+            
+            {% else %}
+
+            <div><a href = "../../account/login">Log in</a></div>
+            <div><a href = "../../account/signup">Create an account</a></div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+    <a href = "" title = "My Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+</div>
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+    <main>
+        <div class = "section">
+            <div class = "sec-header">
+                <h1>Purchase</h1>
+            </div>
+
+            <div class = "empty-container">
+                <h4>Your purchase has been completed successfully.</h4>
+
+                <div class = "purchase-compl-links">
+                    <a href="{% url 'download_invoice_file' %}" class="shop-link">Download Invoice</a>
+                    <a href="{% url 'index' %}" class="shop-link">Home</a>
+                </div>
+            </div>
+
+    </main>
+
+    {% endblock %}
+
+</body>

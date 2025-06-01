@@ -1,0 +1,54 @@
+{% extends 'account.html'%}
+
+{% block title %}Signup | Online Clothing Brand{% endblock %}
+
+{% block content %}
+
+<main>
+    <div class="container signup-container">
+        <h2>Sign Up</h2>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group signup-name">
+                <input type="text" id="first_name" name="first_name" placeholder = "First Name" required>
+                <input type="text" id="last_name" name="last_name" placeholder = "Last Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder = "Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder = "Username" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="mobile_no" name="mobile_no" placeholder = "Mobile No." required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder = "Password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder = "Confrim Password" required>
+            </div>
+
+            {% if messages %}
+            <div class = "error-prompt">
+                {% for msg in messages %}
+                &#9432; {{msg}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <button type="submit" class="btn">Sign Up</button>
+    
+        </form>
+        <div class = "login-prompt">
+            <p>Already have an account? <a href = "login">Log In</a></p>
+        </div>
+    </div>
+</main>
+
+<footer class = "footer">
+    <p>© All Rights Reserved | CSE471 Summer 2024 Section 4 Group 9</p>
+</footer>
+
+{% endblock %}

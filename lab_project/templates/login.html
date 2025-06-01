@@ -1,0 +1,45 @@
+{% extends 'account.html' %}
+
+{% block title %}Login | Online Clothing Brand{% endblock %}
+
+{% block content %}
+
+<main>
+    <div class="container login-container">
+        <h2>Login</h2>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder = "Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder = "Password" required>
+            </div>
+
+            {% if messages %}
+            <div class = "error-prompt">
+                {% for msg in messages %}
+                &#9432; {{msg}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <div class = "password-prompt">
+            <p>Forgot Password?<a href="forget_password">Click Here</a></p>
+        </div>
+
+        <div class = "signup-prompt">
+            <p>Don't have an account? <a href = "signup">Sign up</a></p>
+        </div>
+    </div>
+</main>
+
+<footer class = "footer">
+    <p>© All Rights Reserved | CSE471 Summer 2024 Section 4 Group 9</p>
+</footer>
+
+{% endblock %}

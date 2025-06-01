@@ -1,0 +1,178 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Home | Online Clothing Brand</title>
+    
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="https://kit.fontawesome.com/929aba3781.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    {% include 'base.html' %}
+    <main>
+       
+        <div class = "section sec-products">
+            <div class = "sec-header">
+                <h1>{{ type }}</h1>
+            </div>
+            <div class = "products">
+                {% for product in products %}
+                    <div class="product">
+                        <a href="{% url 'product_detail' product.id %}" class="prod-link">
+                            <img src="{{ product.img.url }}">
+                            <figcaption>{{ product.name }}<br>BDT {{ product.price }}</figcaption>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    <footer class = "footer">
+        <div class = "footer-container">
+            <div class="footer-address">
+                BRAC University<br>
+                Bir Uttam Rafiqul Islam Avenue,<br>
+                Badda, Dhaka
+            </div>
+
+            <div class="footer-quick-links">
+                <div><a href="#">About Us</a></div>
+                <div><a href="#">Career</a></div>
+            </div>
+        </div>
+        <p>© All Rights Reserved | CSE471 Summer 2024 Section 4 Group 9</p>
+    </footer>
+
+    
+    <!-- Search Algo -->
+    <script>
+        document.getElementById('search-input').addEventListener('keyup', function() {
+            let searchValue = this.value.toLowerCase();
+            let products = document.querySelectorAll('.product');
+            
+            products.forEach(function(product) {
+                let productName = product.querySelector('figcaption').textContent.toLowerCase();
+                if (productName.includes(searchValue)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ product.category }} | Online Clothing Brand{% endblock %}
+
+{% block link %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+
+
+<body>
+
+    {% block iconlinks %}
+
+    <div class = "icons">
+        <a href="#" title = "Search" class = "search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+        
+        <div class = "user-icon">
+            <a href="#" class = "profile-icon" title = "Account"><i class="fas fa-user"></i></a>
+            <div class = "dropdown icon-dropdown">
+
+                {% if user.is_authenticated and not user.is_superuser %}
+                
+                <div><a href = "../../account/update_profile">My Profile</a></div>
+                <div><a href = "../../shopping_cart/view_cart">My Cart</a></div>
+                <div><a href = "../../account/logout">Log Out</a></div>
+
+                {% else %}
+
+                <div><a href = "../../account/login">Log in</a></div>
+                <div><a href = "../../account/signup">Create an account</a></div>
+
+                {% endif %}
+
+            </div>
+        </div>
+
+        <a href = "../../shopping_cart/view_cart" title = "My Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+    </div>
+
+    {% endblock %}
+
+    <main class = "main-all-prods">
+        <div class = "section sec-products"></div>
+            <div class = "sec-header">
+                <h1>{{ category }}</h1>
+            </div>
+    
+            <div class = "products">
+                
+                {% for prods in product %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </main> -->
+
+    
+    
+    <!-- Search Algo -->
+    <!-- <script>
+        document.getElementById('search-input').addEventListener('keyup', function() {
+            let searchValue = this.value.toLowerCase();
+            let products = document.querySelectorAll('.product');
+            
+            products.forEach(function(product) {
+                let productName = product.querySelector('figcaption').textContent.toLowerCase();
+                if (productName.includes(searchValue)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body> -->

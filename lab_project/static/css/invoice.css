@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+}
+
+
+/* VARIABLES */
+:root {
+    /* FONT */
+    --FF: "VT323", monospace;
+    --FS: 1rem;
+
+    /* COLORS */
+    --BG-COLOR: white;
+    --FONT-COLOR: black;
+    
+    
+    /* GENERAL STYLES */
+    --HEADER-PADDING: 4rem 0 2.5rem;
+    --HEADER-BORDER: 2px solid var(--FONT-COLOR);
+    --CAT-GAP: 2rem;
+}
+
+body {
+    background-color: white;
+    font-family: var(--FF);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    flex-grow: 1;
+    height: 100vh;
+    text-align: center;
+}
+
+.not-footer {
+    width: 50vw;
+}
+
+.pg-header {
+    line-height: 2rem;
+}
+
+.inv-dtls {
+    padding: 2rem 0;
+}
+
+.inv-dtl-table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.inv-dtl-table th {
+    padding: 0.3rem;
+}
+
+.inv-dtl-table td {
+    width: 25vw;
+    text-wrap: balance;
+    padding: 0.2rem;
+}
+
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid black;
+    margin-top: 1rem;
+    padding-top: 5px;
+}

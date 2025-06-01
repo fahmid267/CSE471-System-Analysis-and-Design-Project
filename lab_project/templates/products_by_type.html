@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ type }}{% endblock %}
+
+{% block link %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+
+
+<body>
+
+    {% block iconlinks %}
+
+    <div class = "icons">
+        <div class = "search-bar">
+            <input type="text" id="search-input" placeholder="&#x1F50E;&#xFE0E;" class="search-bar">
+        </div>
+        
+        <div class = "user-icon">
+            <a href="#" class = "profile-icon" title = "Account"><i class="fas fa-user"></i></a>
+            <div class = "dropdown icon-dropdown">
+
+                {% if user.is_authenticated and not user.is_superuser %}
+                
+                <div><a href = "../../account/update_profile">My Profile</a></div>
+                <div><a href = "../../shopping_cart/view_cart">My Cart</a></div>
+                <div><a href = "../../account/logout">Log Out</a></div>
+                
+                {% else %}
+
+                <div><a href = "../../account/login">Log in</a></div>
+                <div><a href = "../../account/signup">Create an account</a></div>
+
+                {% endif %}
+
+            </div>
+        </div>
+
+        <a href = "" title = "My Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+    </div>
+
+    {% endblock %}
+
+    {% block content %}
+
+    <main>
+       <div class = "section sec-products">
+            <div class = "sec-header">
+
+                {% if category == "Accessories" %}
+
+                {% if type == "Watch" %}
+                <h1>{{ type }}es</h1>
+
+                {% else %}
+
+                <h1>{{ type }}s</h1>
+
+                {% endif %}
+                
+                {% elif category == "Boys" %}
+
+                {% if type == "Shoes" %}
+                <h1>{{ category }}' {{ type }}</h1>
+
+                {% else %}
+
+                <h1>{{ category }}' {{ type }}s</h1>
+
+                {% endif %}
+
+                {% elif category == "Girls" %}
+
+                {% if type == "Tops" or type == "Shoes" %}
+                <h1>{{ category }}' {{ type }}</h1>
+
+                {% else %}
+
+                <h1>{{ category }}' {{ type }}s</h1>
+
+                {% endif %}
+
+                {% elif category == "Women" and type == "Tops" %}
+
+                <h1>{{ category }}'s {{ type }}</h1>
+
+                {% else %}
+
+                <h1>{{ category }}'s {{ type }}s</h1>
+
+                {% endif %}
+
+            </div>
+            <div class = "products">
+                {% for product in products %}
+                    <div class="product">
+                        <a href="{% url 'product_detail' product.id %}" class="prod-link">
+                            <img src="{{ product.img.url }}">
+                            <figcaption>{{ product.name }}<br>BDT {{ product.price }}</figcaption>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    {% endblock %}
+
+    <footer class = "footer">
+        <div class = "footer-container">
+            <div class="footer-address">
+                BRAC University<br>
+                Bir Uttam Rafiqul Islam Avenue,<br>
+                Badda, Dhaka
+            </div>
+
+            <div class="footer-quick-links">
+                <div><a href="#">About Us</a></div>
+                <div><a href="#">Career</a></div>
+            </div>
+        </div>
+        <p>© All Rights Reserved | CSE471 Summer 2024 Section 4 Group 9</p>
+    </footer>
+
+    
+    <!-- Search Algo -->
+    <script>
+        document.getElementById('search-bar').addEventListener('keyup', function() {
+            let searchValue = this.value.toLowerCase();
+            let products = document.querySelectorAll('.product');
+            
+            products.forEach(function(product) {
+                let productName = product.querySelector('figcaption').textContent.toLowerCase();
+                if (productName.includes(searchValue)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

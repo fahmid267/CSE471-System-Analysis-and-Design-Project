@@ -1,0 +1,17 @@
+<!-- ecomapp/templates/shop_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop List</title>
+</head>
+<body>
+    <h1>List of Shops</h1>
+    <ul>
+        {% for shop in shops %}
+            <li>{{ shop.name }} - {{ shop.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

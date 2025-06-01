@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-grow: 1;
+    position: relative;
+    background-color: whitesmoke;
+}
+
+.home-link {
+    margin-top: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 1rem;
+}
+
+.home-link a {
+    color: #222;
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+.home-link a:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+    transition: all 0.2s;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.container {
+    text-align: center;
+    /* margin-top: 100px; Adjust for the fixed navbar height */
+    background: #fff;
+    padding: 3em 3em;
+    border-radius: 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    color: #222;
+}
+
+.signup-container {
+    /* padding: 3em 3em 1em; */
+    width: 400px;
+}
+
+.signup-name {
+    display: flex;
+    gap: 1em;
+}
+
+h2 {
+    margin-bottom: 1em;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+.form-group input {
+    margin-top: 1em;
+    width: 100%;
+    padding: 0.5em;
+    border: none;
+    border-bottom: 1px solid #222;
+    outline: none;
+}
+
+.form-group .sign-up input {
+    width: calc(50% - 5px);
+    margin-top: 1em;
+    width: 100%;
+    padding: 0.5em;
+    border: none;
+    border-bottom: 1px solid #222;
+    outline: none;
+}
+
+.password-prompt {
+    /* padding: 1em; */
+    padding: 2em 2em 1em;
+}
+
+.password-prompt a {
+    text-decoration: none;
+    color: #222;
+}
+
+.password-prompt a:hover {
+    border-bottom: 1px solid #222;
+}
+
+.login-prompt {
+    margin-top: 10px;
+}
+
+.signup-prompt a, .login-prompt a {
+    color:#222;
+}
+
+.error-prompt {
+    color: red;
+    font-size: 12px;
+    margin-top: 1em;
+}
+
+.footer {
+    color: #222;
+    width: 100%;
+    padding: 5px;
+    /* position: fixed; */
+    bottom: 0;
+    text-align: center;
+}
+
+.verf_prompt:first-child {
+    font-size: 1.5rem;
+}
+
+.btn {
+    background: #222;
+    border: none;
+    padding: 0.5em 1em;
+    color: #fbf9ea;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background 0.3s;
+    text-decoration: none; /* Ensure the link style is*/
+    margin-top: 1em;
+}
+
+.btn:hover {
+    background: #555;
+}

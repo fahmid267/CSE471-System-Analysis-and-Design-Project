@@ -1,0 +1,51 @@
+{% extends 'product_detail.html' %}
+
+{% block shoes %}
+
+<div class = "size-list">
+    <div>
+        <input class="radio-size" type="radio" id="size_s" name="size" value="S" required>
+        <label for="size_s" class = "radio-label">40</label>
+    </div>
+
+    <div>
+        <input class="radio-size" type="radio" id="size_m" name="size" value="M" required>
+        <label for="size_m" class = "radio-label">41</label>
+    </div>
+
+    <div>
+        <input class="radio-size" type="radio" id="size_l" name="size" value="L" required>
+        <label for="size_l" class = "radio-label">42</label>
+    </div>
+
+    <div>
+        <input class="radio-size" type="radio" id="size_xl" name="size" value="XL" required>
+        <label for="size_xl" class = "radio-label">43</label>
+    </div>
+</div>
+
+{% block clothes %}
+
+<div class = "size-list">
+    <div>
+        <input class="radio-size" type="radio" id="size_s" name="size" value="S" required>
+        <label for="size_s" class = "radio-label">S</label>
+    </div>
+
+    <div>
+        <input class="radio-size" type="radio" id="size_m" name="size" value="M" required>
+        <label for="size_m" class = "radio-label">M</label>
+    </div>
+
+    <div>
+        <input class="radio-size" type="radio" id="size_l" name="size" value="L" required>
+        <label for="size_l" class = "radio-label">L</label>
+    </div>
+
+    <div>
+        <input class="radio-size" type="radio" id="size_xl" name="size" value="XL" required>
+        <label for="size_xl" class = "radio-label">XL</label>
+    </div>
+</div>
+
+{% endblock %}

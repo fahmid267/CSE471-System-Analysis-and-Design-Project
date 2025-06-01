@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}My Cart{% endblock %}
+
+{% block link %}<link rel="stylesheet" href="{% static 'css/cart.css' %}">{% endblock %}
+
+
+<body>
+
+    {% block iconlinks %}
+
+    <div class = "icons">
+        <div class = "search-bar">
+            <input type="text" id="search-input" placeholder="&#x1F50E;&#xFE0E;" class="search-bar">
+        </div>
+        
+        <div class = "user-icon">
+            <a href="#" class = "profile-icon" title = "Account"><i class="fas fa-user"></i></a>
+            <div class = "dropdown icon-dropdown">
+
+                {% if user.is_authenticated and not user.is_superuser %}
+                
+                <div><a href = "../../account/update_profile">My Profile</a></div>
+                <div><a href = "../../shopping_cart/view_cart">My Cart</a></div>
+                <div><a href = "../../account/logout">Log Out</a></div>
+                
+                {% else %}
+
+                <div><a href = "../../account/login">Log in</a></div>
+                <div><a href = "../../account/signup">Create an account</a></div>
+
+                {% endif %}
+
+            </div>
+        </div>
+
+        <a href = "" title = "My Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+    </div>
+
+    {% endblock %}
+    
+    {% block content %}
+
+    <main>
+        <div class = "section">
+            <div class = "sec-header">
+                <h1>My Cart</h1>
+            </div>
+
+            {% if cart_items %}
+
+            <div class = "cart-prod-price">
+                <div class = "cart-dtl-container">
+
+                    {% for items in cart_items %}
+        
+                    <div class = "prod-container">
+
+                        <form method = "POST" class = "add-sub-form" action = "{% url 'update_cart' items.id %}">
+                            
+                            {% csrf_token %}
+
+                            <div class = "add-sub-form-div">
+                                <button type = "number" step = "1" class = "add-sub-btn" name = "qty-add" value = "{{ items.quantity }">+</button>
+                                <button type = "number" step = "1" class = "add-sub-btn" name = "qty-sub" value = "{{ items.quantity }}">-</button>
+                            </div>
+                        </form>
+                        
+                        
+                        <img src="{{ items.product_img.url }}" alt="{{ items.product_name }}" width = "80" height = "80">
+                        
+                        <div class = "prod-name-price">
+                            <div class = "prod-name-size">
+                                <h3 class = "prod-name">{{items.product_name}}</h3>
+                                <h3 class = "prod-size">{{items.product_size}}</h3>
+                                <h3 class = "prod-qty">x{{items.quantity}}</h3>
+                            </div>
+                            <h3 class = "prod-price">BDT {{items.price}}</h3>
+                        </div>
+                    </div>
+        
+                    {% endfor %}
+        
+                </div>
+        
+                <div class = "cart-dtl-container price-container">
+                    <h3>Total</h3>
+        
+                    <div class = "calc">
+                        <!-- <span class = "calc-line">
+                            <h4>Discount:</h4>
+                        </span> -->
+        
+                        <span class = "calc-line"></span>
+                            <!-- <h4>Subtotal:</h4> -->
+                            <h4>Total: BDT {{cart.total_price}}</h4>
+                        </span>
+                    </div>
+
+                    <div class = "checkout-sec"></div>
+                        <a href="{% url 'download_invoice' %}">
+                            <button class = "checkout-btn">Checkout</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {% else %}
+
+            <div class = "empty-container">
+                <h4>Your cart is currently empty</h4>
+                <a href = "/" class = "shop-link">Shop Now</a>
+            </div>
+
+            {% endif %}
+
+    </main>
+
+    {% endblock %}
+    
+</body>
+</html>

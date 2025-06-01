@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}My Profile | Online Clothing Brand{% endblock %}
+
+{% block link %}<link rel="stylesheet" href="{% static 'css/user_profile.css' %}">{% endblock %}
+
+{% block iconlinks %}
+
+<div class = "icons">
+    <div class = "search-bar">
+        <input type="text" id="search-input" placeholder="&#x1F50E;&#xFE0E;" class="search-bar">
+    </div>
+    
+    <div class = "user-icon">
+        <a href="#" class = "profile-icon" title = "Account"><i class="fas fa-user"></i></a>
+        <div class = "dropdown icon-dropdown">
+
+            {% if user.is_authenticated and not user.is_superuser %}
+            
+            <div><a href = "account/update_profile">My Profile</a></div>
+            <div><a href = "../../shopping_cart/view_cart">My Cart</a></div>
+            <div><a href = "../account/logout">Log Out</a></div>
+            
+            
+
+            {% else %}
+
+            <div><a href = "account/login">Log in</a></div>
+            <div><a href = "account/signup">Create an account</a></div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% if user.is_authenticated %}
+    <a href = "../../shopping_cart/view_cart" title = "My Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+    {% else %}
+    <a href = "account/login" title = "My Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<main class = "main-user-profile">
+    <div class = "section sec-my-profile">
+        <div class = "sec-header">
+            <h1>My Profile</h1>
+        </div>
+
+        <div class = "user-creds-div">
+            <div class = "sec-row">
+                <div class = "textfield-sec f-name">
+                    <label for = "first_name" class = "textfield-header">First Name</label>
+                    <input type = "text" class = "textfield-data" value = "{{ request.user.first_name }}" name = "first_name" disabled>
+                </div>
+                
+                <div class = "textfield-sec l-name">
+                    <label for = "last_name" class = "textfield-header">Last Name</label>
+                    <input type = "text" class = "textfield-data" value = "{{ request.user.last_name }}" name = "last_name" disabled>
+                </div>
+            </div>
+
+            <div class = "sec-row">
+                <div class = "textfield-sec email">
+                    <label for = "email" class = "textfield-header">Email Address</label>
+                    <input type = "text" class = "textfield-data" value = "{{ request.user.email }}" name = "email" disabled>
+                </div>
+            </div>
+            
+            <div class = "sec-row">
+                <div class = "textfield-sec uname">
+                    <label for = "username" class = "textfield-header">Username</label>
+                    <input type = "text" class = "textfield-data" value = "{{ request.user.username }}" name = "username" disabled>
+                </div>
+
+                <div class = "textfield-sec mobile-no">
+                    <label for = "mobile_no" class = "textfield-header">Mobile No.</label>
+                    <input type = "text" class = "textfield-data" value = "{{ request.user.mobile_no }}" name = "mobile_no" disabled>
+                </div>
+            </div>
+            
+            
+            <div class = "sec-row btn-sec">
+                <div class = "textfield-sec password">
+                    <a href="changepass" class = "pass-link">Change Password</a>
+                </div>
+                
+                <div class = "textfield-sec btns">
+                    <a href = "update_profile" class = "update-btn" id = "update-profile-btn">Edit Info</button>
+                    <a href="../" class = "back-btn">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

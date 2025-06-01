@@ -1,0 +1,327 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %}{% endblock %}</title>
+    
+    {% block link %}{% endblock %}
+
+    <script src="https://kit.fontawesome.com/929aba3781.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header class = "nav-bar">
+        <div class = "home-link" title = "Sidebar">
+            <a href = "/"><i class="fas fa-home"></i></a>
+        </div>
+
+        <div class="site-link">
+            <a href="/" class = "site-link-a">SoloHustle</a>
+        </div>
+
+        <div class = "category-nav">
+            <div class = "category">
+                <a href = "#" class = "category-name">MEN</a>
+    
+                <div class = "dropdown category-dropdown">
+                    <div class = "dropdown-content">
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'T Shirt' 'Men' %}" class = "content-group-header">T-Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Men' 'Polo' %}" class = "content-name-drop">Polo T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Men' 'Crew Neck' %}" class = "content-name-drop">Crew Neck T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Men' 'Graphic' %}" class = "content-name-drop">Graphic T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Men' 'V-Neck' %}" class = "content-name-drop">V-Neck T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Men' 'Henley' %}" class = "content-name-drop">Henley T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Men' 'Long Sleeve' %}" class = "content-name-drop">Long Sleeve T-shirts</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Shirt' 'Men' %}" class = "content-group-header">Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Men' 'Formal' %}" class = "content-name-drop">Formal Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Men' 'Chambray' %}" class = "content-name-drop">Chambray Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Men' 'Casual' %}" class = "content-name-drop">Casual Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Men' 'Oxford' %}" class = "content-name-drop">Oxford Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Men' 'Flannel' %}" class = "content-name-drop">Flannel Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Men' 'Linen' %}" class = "content-name-drop">Linen Shirts</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Pant' 'Men' %}" class = "content-group-header">Pants</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Pant' 'Men' 'Jeans' %}" class = "content-name-drop">Jeans</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Pant' 'Men' 'Chinos' %}" class = "content-name-drop">Chinos</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Men' 'Cargo' %}" class = "content-name-drop">Cargo Pants</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Men' 'Formal' %}" class = "content-name-drop">Formal Pants</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Panjabi' 'Men' %}" class = "content-group-header">Panjabi</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Panjabi' 'Men' 'Cotton' %}" class = "content-name-drop">Cotton Panjabi</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Panjabi' 'Men' 'Embroidered' %}" class = "content-name-drop">Embroidered Panjabi</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class = "category">
+                <a href = "#" class = "category-name">WOMEN</a>
+    
+                <div class = "dropdown category-dropdown">
+                    <div class = "dropdown-content">
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Kurti' 'Women' %}" class = "content-group-header">Kurtis</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Kurti' 'Women' 'Printed Cotton' %}" class = "content-name-drop">Printed Cotton Kurtis</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Kurti' 'Women' 'Embroidered' %}" class = "content-name-drop">Embroidered Kurtis</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Kurti' 'Women' 'A-Line' %}" class = "content-name-drop">A-Line Kurtis</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Kurti' 'Women' 'Anarkali' %}" class = "content-name-drop">Anarkali Kurtis</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Saree' 'Women' %}" class = "content-group-header">Sarees</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Saree' 'Women' 'Silk' %}" class = "content-name-drop">Silk Sarees</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Saree' 'Women' 'Georgette' %}" class = "content-name-drop">Georgette Sarees</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Tops' 'Women' %}" class = "content-group-header">Tops</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Tops' 'Women' 'Georgette' %}" class = "content-name-drop">Tops</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Tops' 'Women' 'T-Shirt' %}" class = "content-name-drop">T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Tops' 'Women' 'Shirt' %}" class = "content-name-drop">Shirts</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "category">
+                <a href = "#" class = "category-name">BOYS</a>
+    
+                <div class = "dropdown category-dropdown">
+                    <div class = "dropdown-content">
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'T Shirt' 'Boys' %}" class = "content-group-header">T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Boys' 'T-Shirt' %}" class = "content-name-drop">Cartoon Print T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Boys' 'T-Shirt' %}" class = "content-name-drop">Striped T-shirts</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Shirt' 'Boys' %}" class = "content-group-header">Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Boys' 'Plaid Button' %}" class = "content-name-drop">Plaid Button-Down Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Boys' 'Denim' %}" class = "content-name-drop">Denim Shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shirt' 'Boys' 'Casual' %}" class = "content-name-drop">Casual Shirts</a></div>
+                            </div>
+                        </div>
+    
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Pant' 'Boys' %}" class = "content-group-header">Pants</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Pants' 'Boys' 'Straight Fit' %}" class = "content-name-drop">Straight Fit Jeans</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Pants' 'Boys' 'Cargo' %}" class = "content-name-drop">Cargo Pants</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Pants' 'Boys' 'Jogger' %}" class = "content-name-drop">Jogger Pants</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Panjabi' 'Boys' %}" class = "content-group-header">Panjabis</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Panjabis' 'Boys' 'Cotton' %}" class = "content-name-drop">Cotton Panjabi</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Panjabis' 'Boys' 'Festive' %}" class = "content-name-drop">Festive Panjabi</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "category">
+                <a href = "#" class = "category-name">GIRLS</a>
+    
+                <div class = "dropdown category-dropdown">
+                    <div class = "dropdown-content">
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Frock' 'Girls' %}" class = "content-group-header">Frocks</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Frock' 'Girls' 'Party' %}" class = "content-name-drop">Party Frocks</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Frock' 'Girls' 'Floral' %}" class = "content-name-drop">Floral Print Frocks</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Frock' 'Girls' 'Cotton' %}" class = "content-name-drop">Cotton Frocks</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Kurti' 'Girls' %}" class = "content-group-header">Kurtis</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Kurti' 'Girls' 'Cotton' %}" class = "content-name-drop">Cotton Kurtis</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Tops' 'Girls' %}" class = "content-group-header">Tops</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Tops' 'Girls' 'Tops' %}" class = "content-name-drop">T-shirts</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'T Shirt' 'Girls' 'Shirts' %}" class = "content-name-drop">Shirts</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "category">
+                <a href = "#" class = "category-name">FOOTWEAR</a>
+    
+                <div class = "dropdown category-dropdown">
+                    <div class = "dropdown-content">
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Shoes' 'Men' %}" class = "content-group-header">Men</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shoes' 'Men' 'Dress' %}" class = "content-name-drop">Leather Dress Shoes</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shoes' 'Men' 'Loafers' %}" class = "content-name-drop">Casual Loafers</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shoes' 'Men' 'Running' %}" class = "content-name-drop">Running Shoes</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Shoes' 'Women' %}" class = "content-group-header">Women</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shoes' 'Women' 'Slip-On' %}" class = "content-name-drop">Slip-On Sandal</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shoes' 'Women' 'Embellished' %}" class = "content-name-drop">Embellished Flats</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Shoes' 'Boys' %}" class = "content-group-header">Boys</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shoes' 'Boys' 'Velcro' %}" class = "content-name-drop">Velcro Sneakers</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shoes' 'Boys' 'Light-Up' %}" class = "content-name-drop">Light-Up Shoes</a></div>
+                                <div><a href = "{% url 'products_by_type_with_name' 'Shoes' 'Women' 'Sandals' %}" class = "content-name-drop">Sandals</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Shoes' 'Girls' %}" class = "content-group-header">Girls</a></div>
+                                <div><a href = "#" class = "content-name-drop">Velcro Sneakers</a></div>
+                                <div><a href = "#" class = "content-name-drop">Light-Up Shoes</a></div>
+                                <div><a href = "#" class = "content-name-drop">Sandals</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "category">
+                <a href = "#" class = "category-name">ACCESSORIES</a>
+    
+                <div class = "dropdown category-dropdown">
+                    <div class = "dropdown-content">
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Belt' 'Accessories' %}" class = "content-group-header">Belts</a></div>
+                                <div><a href = "#" class = "content-name-drop">Classic Leather Belt</a></div>
+                                <div><a href = "#" class = "content-name-drop">Designer Buckle Belt</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Wallet' 'Accessories' %}" class = "content-group-header">Wallets</a></div>
+                                <div><a href = "#" class = "content-name-drop">Bifold Leather Wallet</a></div>
+                                <div><a href = "#" class = "content-name-drop">Minimalist Slim Wallet</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Watch' 'Accessories' %}" class = "content-group-header">Watches</a></div>
+                                <div><a href = "#" class = "content-name-drop">Classic Leather Strap Watch</a></div>
+                                <div><a href = "#" class = "content-name-drop">Digital Sports Watch</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class = "dropdown-grid">
+                            <div class = "content-group">
+                                <div><a href = "{% url 'products_by_type' 'Shoe Shiner' 'Accessories' %}" class = "content-group-header">Shoe Shiners</a></div>
+                                <div><a href = "#" class = "content-name-drop">Black Shoe Shiner</a></div>
+                                <div><a href = "#" class = "content-name-drop">Brown Shoe Shiner</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% block iconlinks %}
+
+        {% endblock %}
+
+    </header>
+
+    {% block content %}
+        
+    {% endblock %}
+
+    <footer class = "footer">
+        <div class = "footer-container">
+            <div class="footer-address">
+                BRAC University<br>
+                Bir Uttam Rafiqul Islam Avenue,<br>
+                Badda, Dhaka
+            </div>
+
+            <div class="footer-quick-links">
+                <div><a href="#">About Us</a></div>
+                <div><a href="#">Career</a></div>
+            </div>
+        </div>
+        <p>© All Rights Reserved | CSE471 Summer 2024 Section 4 Group 9</p>
+    </footer>
+
+    
+
+    <!-- Searching Algorithm -->
+    <script>
+        document.getElementById('search-input').addEventListener('keyup', function() {
+            let searchValue = this.value.toLowerCase();
+            let products = document.querySelectorAll('.product');
+            let slideshow = document.getElementById('slideshow-container'); // Select the slideshow container
+
+            // Hide the slideshow if there is any input
+            if (searchValue.length > 0) {
+                slideshow.style.display = 'none';
+            } else {
+                slideshow.style.display = 'block'; // Show the slideshow if search input is cleared
+            }
+
+            products.forEach(function(product) {
+                let productName = product.querySelector('figcaption').textContent.toLowerCase();
+                if (productName.includes(searchValue)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

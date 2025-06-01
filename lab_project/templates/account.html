@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+
+    <script src="https://kit.fontawesome.com/929aba3781.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class = "home-link">
+        <a href = "../"><i class="fas fa-home"></i></a>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

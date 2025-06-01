@@ -1,0 +1,29 @@
+{% extends 'account.html' %}
+{% block title %}Password Reset | Online Clothing Brand{% endblock %}
+{% block content %}
+<main>
+    <div class="container login-container">
+        <h2>Create new password</h2>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+            {% for fm in form %}
+                {{ fm.label_tag }} {{ fm }} {{ fm.errors|striptags }} <br> <br>
+            {% endfor %}
+            <input type="submit" value="Save">
+        </form>
+        <a href="my_profile">Profile</a>
+        <a href="user_logout">Log out</a>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>© All Rights Reserved | CSE471 Summer 2024 Section 4 Group 9</p>
+</footer>
+
+
+{% endblock %}

@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Online Clothing Brand{% endblock %}
+
+{% block link %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+
+<body>
+
+    {% block iconlinks %}
+
+    <div class="icons">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="&#x1F50E;&#xFE0E;" class="search-bar">
+        </div>
+
+        <div class="user-icon">
+            <a href="#" class="profile-icon" title="Account"><i class="fas fa-user"></i></a>
+            <div class="dropdown icon-dropdown">
+
+                {% if user.is_authenticated and not user.is_superuser %}
+
+                <div><a href="account/my_profile">My Profile</a></div>
+                <div><a href="shopping_cart/view_cart">My Cart</a></div>
+                <div><a href="account/logout">Log Out</a></div>
+
+                {% else %}
+
+                <div><a href="account/login">Log in</a></div>
+                <div><a href="account/signup">Create an account</a></div>
+
+                {% endif %}
+
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+        <a href="shopping_cart/view_cart" title="My Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+        {% else %}
+        <a href="account/login" title="My Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+        {% endif %}
+    </div>
+
+    {% endblock %}
+
+    {% block content %}
+
+    <main>
+        <div class="section sec-slideshow" id="slideshow-container">
+            <div class="slideshow-container" >
+                <div class="slides">
+                    <img src="{% static 'slideshow/1.jpg' %}" class="slide" width="100%" height="800px" alt="Image 1">
+                </div>
+                <div class="slides">
+                    <img src="{% static 'slideshow/2.jpg' %}" class="slide" width="100%" height="800px" alt="Image 2">
+                </div>
+                <div class="slides">
+                    <img src="{% static 'slideshow/3.jpg' %}" class="slide" width="100%" height="800px" alt="Image 3">
+                </div>
+                <div class="slides">
+                    <img src="{% static 'slideshow/4.jpg' %}" class="slide" width="100%" height="800px" alt="Image 3">
+                </div>
+                <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
+                <a class="next" onclick="moveSlides(1)">&#10095;</a>
+            </div>
+        </div>
+
+        <div class="section sec-products">
+            <div class="sec-header">
+                <h1>Products</h1>
+            </div>
+
+            <div class="products">
+                {% for prods in product %}
+
+                {% if prods.category == "Men" and prods.type != "Shoes" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+                
+                {% for prods in product %}
+
+                {% if prods.category == "Women" and prods.type != "Shoes" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+                
+                {% for prods in product %}
+
+                {% if prods.category == "Men" and prods.type == "Shoes" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+                
+                {% for prods in product %}
+
+                {% if prods.category == "Women" and prods.type == "Shoes" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+                
+                {% for prods in product %}
+
+                {% if prods.category == "Boys" and prods.type != "Shoes" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+                
+                {% for prods in product %}
+
+                {% if prods.category == "Girls" and prods.type != "Shoes" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+                
+                {% for prods in product %}
+
+                {% if prods.category == "Boys" and prods.type == "Shoes" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+                
+                {% for prods in product %}
+
+                {% if prods.category == "Girls" and prods.type == "Shoes" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% for prods in product %}
+                
+                {% if prods.category == "Accessories" %}
+
+                <div class = "product">
+                    <a href = "{% url 'product_detail' prods.id %}" class = "prod-link"><img src="{{prods.img.url}}"><figcaption>{{prods.name}}<br>BDT {{prods.price}}</figcaption></a>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    
+    <script>
+        let slideIndex = 0;
+        let autoSlideInterval = null;
+        
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slides");
+            if (n >= slides.length) { slideIndex = 0; }
+            if (n < 0) { slideIndex = slides.length - 1; }
+    
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; 
+            }
+    
+            slides[slideIndex].style.display = "block"; 
+        }
+    
+       
+        function moveSlides(n) {
+            slideIndex += n;
+            showSlides(slideIndex);
+            resetAutoSlide(); 
+        }
+    
+       
+        function autoSlides() {
+            slideIndex++;
+            showSlides(slideIndex);
+        }
+    
+  
+        function startAutoSlide() {
+            showSlides(slideIndex); 
+            autoSlideInterval = setInterval(autoSlides, 2000); 
+        }
+    
+       
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(autoSlides, 2000);
+        }
+    
+        window.onload = startAutoSlide;
+    
+        
+        const searchInput = document.getElementById('search-input');
+        const products = document.querySelectorAll('.product');
+        const slideshow = document.getElementById('slideshow'); 
+    
+        searchInput.addEventListener('input', function () {
+            const searchValue = this.value.toLowerCase();
+    
+            
+            if (searchValue) {
+                slideshow.style.display = 'none'; 
+            } else {
+                slideshow.style.display = 'block'; 
+            }
+    
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                if (productName.includes(searchValue)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    {% endblock %}
+
+</body>
+</html>

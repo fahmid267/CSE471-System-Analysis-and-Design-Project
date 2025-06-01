@@ -1,0 +1,38 @@
+{% extends 'account.html' %}
+
+{% block title %}Password Reset | Online Clothing Brand{% endblock %}
+
+{% block content %}
+
+<main>
+    <div class="container login-container">
+        <h2>Password Reset</h2>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder = "Email" required>
+            </div>
+
+            {% if messages %}
+            <div class = "error-prompt">
+                {% for msg in messages %}
+                &#9432; {{msg}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <button type="submit" class="btn">Next</button>
+        </form>
+
+        <div class = "password-prompt">
+            <a href="../login">Login</a>
+        </div>
+    </div>
+</main>
+
+<footer class = "footer">
+    <p>© All Rights Reserved | CSE471 Summer 2024 Section 4 Group 9</p>
+</footer>
+
+{% endblock %}
