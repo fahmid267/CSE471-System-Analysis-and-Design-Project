@@ -14,6 +14,8 @@ This is a system analysis and design course project with Django and PostgreSQL f
 5. Cart management
 6. Real-time payment gateway was skipped due to certain limitations but invoice generation was implemented
 
+## Demo
+
 ## Usage
 1. Navigate to the project directory
 2. Open any code editor
