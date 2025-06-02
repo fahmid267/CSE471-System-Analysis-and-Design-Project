@@ -16,12 +16,13 @@ This is a system analysis and design course project with Django and PostgreSQL f
 
 ## Usage
 1. Navigate to the project directory
-2. Create a virtual environment (Recommended)
-   `python -m venv venv`
-3. Activate the virual environment
+2. Open any code editor
+3. Create a virtual environment (Recommended)
+   <pre>```python -m venv venv```</pre>
+4. Activate the virual environment
    `venv\Scripts\activate`
-4. Make migrations for database
+5. Make migrations for database
    `python manage.py makemigrations
    python manage.py migrate`
-5. Run the server
+6. Run the server
    `python manage.py runserver`
