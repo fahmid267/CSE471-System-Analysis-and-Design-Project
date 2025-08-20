@@ -1,7 +1,7 @@
 # CSE471-Project
 
 ## Title
-Online Clothing Shop Website Using Django
+Online Clothing Shop Web App Using Django
 
 ## Overview
 This is a system analysis and design course project with Django and PostgreSQL for backend system and HTML, CSS, and JS for front-end user interface.
